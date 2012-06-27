@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  description: MyText
+  status: MyText
+  category: MyString
+  priority: MyString
+  technician: MyString
+
+two:
+  user_id: 1
+  description: MyText
+  status: MyText
+  category: MyString
+  priority: MyString
+  technician: MyString
