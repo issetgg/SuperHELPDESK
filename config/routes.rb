@@ -1,4 +1,6 @@
 SuperSimpleHELPDESK::Application.routes.draw do
+  resources :assignations
+
   resources :categories
 
   resources :tickets
