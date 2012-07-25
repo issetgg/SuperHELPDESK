@@ -15,10 +15,13 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.select :category, Category.all.collect { |record| [(record.name), record.name] } %> 
+    <%= f.select :category, Category.all.collect { |record| [(record.name), record.id] } %>
   </div>
+
+
   <%= f.hidden_field :user_id, :value => current_user.id %>    
   <%= f.hidden_field :status, :value => "NO ATENDIDO" %>    
   <div class="actions">
