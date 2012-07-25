@@ -21,6 +21,11 @@
     <%= f.select :category_id, Category.all.collect { |record| [(record.name), record.id] } %>
   </div>
 
+  <div class="field">
+    <%= f.label :department %><br />
+    <%= f.text_field :department %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
