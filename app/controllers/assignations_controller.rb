@@ -2,7 +2,7 @@ class AssignationsController < ApplicationController
   # GET /assignations
   # GET /assignations.json
   def index
-    @assignations = Assignation.all
+    @assignations = Assignation.all;
     @category = Category.assignation(current_user.category);
     @user = User.assignation(current_user.category);
     respond_to do |format|
@@ -46,8 +46,6 @@ class AssignationsController < ApplicationController
   # POST /assignations.json
   def create
     @assignation = Assignation.new(params[:assignation])
-    @category = Category.assignation(current_user.category);
-    @user = User.assignation(current_user.category);
     respond_to do |format|
       if @assignation.save
         format.html { redirect_to @assignation, notice: 'Assignation was successfully created.' }
@@ -63,6 +61,8 @@ class AssignationsController < ApplicationController
   # PUT /assignations/1.json
   def update
     @assignation = Assignation.find(params[:id])
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     respond_to do |format|
       if @assignation.update_attributes(params[:assignation])
         format.html { redirect_to @assignation, notice: 'Assignation was successfully updated.' }
@@ -78,6 +78,8 @@ class AssignationsController < ApplicationController
   # DELETE /assignations/1.json
   def destroy
     @assignation = Assignation.find(params[:id])
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     @assignation.destroy
     respond_to do |format|
       format.html { redirect_to assignations_url }

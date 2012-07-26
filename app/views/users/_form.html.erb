@@ -25,7 +25,12 @@
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select(:category, [
+			['Administrador computo','Administrador computo'],
+			['Administrador electronica','Administrador electronica'],
+			['Tecnico computo', 'Tecnico computo'],
+			['Tecnico electronica', 'Tecnico electronica']
+	]) %>
   </div>
 
   <div class="field">

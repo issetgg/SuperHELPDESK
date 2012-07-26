@@ -3,10 +3,10 @@ class Category < ActiveRecord::Base
   has_many :assignations
   has_many :users, :through => :assignations
   def self.assignation(department)
-    if department.eql?("computo")
+    if department.eql?("Administrador computo")
        return Category.find(:all,:conditions => 'department = "computo"')
-    elsif department.eql?("electricidad")
-       return Category.find(:all,:conditions => 'department = "electricidad"') 
+    elsif department.eql?("Administrador electronica")
+       return Category.find(:all,:conditions => 'department  = "electronica"') 
     else
        return Category.find(:all,:condition => 'department = "null"')
     end
