@@ -1,6 +1,6 @@
 <%= form_for(@assignation) do |f| %>
   <% if @assignation.errors.any? %>
-    <iv id="error_explanation">
+    <div id="error_explanation">
       <h2><%= pluralize(@assignation.errors.count, "error") %> prohibited this assignation from being saved:</h2>
 
       <ul>
