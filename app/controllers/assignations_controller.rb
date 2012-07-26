@@ -1,10 +1,10 @@
-
 class AssignationsController < ApplicationController
   # GET /assignations
   # GET /assignations.json
   def index
     @assignations = Assignation.all
-
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @assignations }
@@ -15,8 +15,9 @@ class AssignationsController < ApplicationController
   # GET /assignations/1.json
   def show
     @assignation = Assignation.find(params[:id])
-
-    respond_to do |format|
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
+      respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @assignation }
     end
@@ -26,7 +27,8 @@ class AssignationsController < ApplicationController
   # GET /assignations/new.json
   def new
     @assignation = Assignation.new
-
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @assignation }
@@ -36,13 +38,16 @@ class AssignationsController < ApplicationController
   # GET /assignations/1/edit
   def edit
     @assignation = Assignation.find(params[:id])
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
   end
 
   # POST /assignations
   # POST /assignations.json
   def create
     @assignation = Assignation.new(params[:assignation])
-
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     respond_to do |format|
       if @assignation.save
         format.html { redirect_to @assignation, notice: 'Assignation was successfully created.' }
@@ -58,7 +63,6 @@ class AssignationsController < ApplicationController
   # PUT /assignations/1.json
   def update
     @assignation = Assignation.find(params[:id])
-
     respond_to do |format|
       if @assignation.update_attributes(params[:assignation])
         format.html { redirect_to @assignation, notice: 'Assignation was successfully updated.' }
@@ -75,7 +79,6 @@ class AssignationsController < ApplicationController
   def destroy
     @assignation = Assignation.find(params[:id])
     @assignation.destroy
-
     respond_to do |format|
       format.html { redirect_to assignations_url }
       format.json { head :no_content }
