@@ -2,10 +2,11 @@ class AssignationsController < ApplicationController
   # GET /assignations
   # GET /assignations.json
   def index
-    @assignation = Assignation.all
+    @assignation = Assignation.all;
     @assignation_user = Assignation.user(current_user.category);
     @category = Category.assignation(current_user.category);
     @user = User.assignation(current_user.category);
+    @users = User.all;
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @assignations }
