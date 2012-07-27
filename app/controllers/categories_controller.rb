@@ -1,9 +1,8 @@
-
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
-
+    #@categories_assignations = Category.all
+    @categories_assignations = Category.assignation(current_user.category);
     respond_to do |format|
       format.html 
       format.json { render json: @categories }

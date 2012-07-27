@@ -2,8 +2,9 @@
 class TicketsController < ApplicationController
 
   def index
-    @tickets = Ticket.all
-
+    #@tickets = Ticket.all
+    @tickets = Ticket.user(current_user.category);
+    @category = Category.assignation(current_user.category);
     respond_to do |format|
       format.html 
       format.json { render json: @tickets }
@@ -21,7 +22,7 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
-
+    @category = Category.assignation(current_user.category);
     respond_to do |format|
       format.html 
       format.json { render json: @ticket }

@@ -23,8 +23,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :department %><br />
-    <%= f.text_field :department %>
+    <%= 
+      if current_user.category.eql?("Administrador computo")
+        f.hidden_field(:department, :value => "computo" ) 
+      elsif current_user.category.eql?("Administrador electronica")
+        f.hidden_field(:department, :value => "electronica" )
+      else
+        f.hidden_field(:department, :value => "error" )
+      end
+    %>
   </div>
 
   <div class="actions">

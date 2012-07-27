@@ -8,7 +8,8 @@ class Category < ActiveRecord::Base
     elsif department.eql?("Administrador electronica")
        return Category.find(:all,:conditions => 'department  = "electronica"') 
     else
-       return Category.find(:all,:condition => 'department = "null"')
+       #return Category.find(:all,:condition => 'department = "null"')
+       return Category.all
     end
   end
 end

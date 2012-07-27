@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.select :category, Category.all.collect { |record| [(record.name), record.id] } %>
+    <%= f.select :category, @category.collect { |record| [record.name, record.id] } %>
   </div>
 
 

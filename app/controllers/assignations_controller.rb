@@ -2,7 +2,8 @@ class AssignationsController < ApplicationController
   # GET /assignations
   # GET /assignations.json
   def index
-    @assignations = Assignation.all;
+    @assignation = Assignation.all
+    @assignation_user = Assignation.user(current_user.category);
     @category = Category.assignation(current_user.category);
     @user = User.assignation(current_user.category);
     respond_to do |format|
@@ -78,8 +79,8 @@ class AssignationsController < ApplicationController
   # DELETE /assignations/1.json
   def destroy
     @assignation = Assignation.find(params[:id])
-    @category = Category.assignation(current_user.category);
-    @user = User.assignation(current_user.category);
+    #@category = Category.assignation(current_user.category);
+    #@user = User.assignation(current_user.category);
     @assignation.destroy
     respond_to do |format|
       format.html { redirect_to assignations_url }
