@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 
+  before_filter :require_user
+
   def index
     #@categories_assignations = Category.all
     @categories_assignations = Category.assignation(current_user.category);

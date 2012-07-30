@@ -1,6 +1,8 @@
 
 class TicketsController < ApplicationController
 
+  before_filter :require_user
+
   def index
     #@tickets = Ticket.all
     @tickets = Ticket.user(current_user.category);

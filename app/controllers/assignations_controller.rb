@@ -1,4 +1,7 @@
 class AssignationsController < ApplicationController
+
+  before_filter :require_user
+
   # GET /assignations
   # GET /assignations.json
   def index
