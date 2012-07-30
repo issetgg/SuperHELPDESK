@@ -22,7 +22,7 @@
     %div#left_menu
      %ul
       %li 
-       %a{:href => "#"}Inicio
+       %a{:href => "#"}Mis Estad&iacute;sticas
       %li 
        %a{:href => "#"}Secretar&iacute;a Administrativa
       %li 
@@ -31,6 +31,8 @@
        %a{:href => "#"}Soporte en C&oacute;mputo
       %li
        %a{:href => "#"}Soporte en Electr&oacute;nica 
+      %li
+       = link_to 'Salir', :controller => "user_sessions", :action => "destroy" 
     %div#content
      = yield      
    %div#footer
