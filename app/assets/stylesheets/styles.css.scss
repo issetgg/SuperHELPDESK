@@ -101,7 +101,7 @@ body {
 
 #content {
     margin-left: 10px;
-    padding: 0px 10px;
+    padding: 10px 10px;
     width: 795px;
     float: left;
     text-align: justify;
@@ -111,6 +111,21 @@ body {
       size: 15px;
     }
     color: #333333;
+    .username {
+      font: {
+        family: verdana, sans-serif;
+        size: 21px;
+      }
+      margin-top: 20px;
+      color: #333333;
+    }
+    .category {
+      font: {
+        family: verdana, sans-serif;
+        size: 13px;
+      }
+      color: #333333;
+    }
 }
 
 #footer {
