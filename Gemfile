@@ -10,6 +10,7 @@ gem 'authlogic'
 gem 'rb-readline'
 gem 'haml'
 gem 'sass'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.

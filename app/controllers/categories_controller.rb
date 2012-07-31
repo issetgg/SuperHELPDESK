@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   before_filter :require_user
+  load_and_authorize_resource
 
   def index
     @categories_assignations = Category.assignation(current_user.category);
@@ -57,11 +58,12 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-    respond_to do |format|
+     @category = Category.find(params[:id])
+     @category.destroy
+     respond_to do |format|
       format.html { redirect_to categories_url }
       format.json { head :no_content }
     end
-  end
+   end
+
 end

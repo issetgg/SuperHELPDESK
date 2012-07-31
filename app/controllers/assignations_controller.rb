@@ -77,8 +77,8 @@ class AssignationsController < ApplicationController
   # DELETE /assignations/1.json
   def destroy
     @assignation = Assignation.find(params[:id])
-    @category = Category.assignation(current_user.category);
-    @user = User.assignation(current_user.category);
+#    @category = Category.assignation(current_user.category);
+#    @user = User.assignation(current_user.category);
     @assignation.destroy
     respond_to do |format|
       format.html { redirect_to assignations_url }
