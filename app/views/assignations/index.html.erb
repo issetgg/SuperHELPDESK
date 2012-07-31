@@ -1,9 +1,9 @@
-<h1>Listing assignations</h1>
+<h1>Listando Asignaciones</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Category</th>
+    <th>Usuario</th>
+    <th>Categor&iacute;a</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,9 +13,9 @@
   <tr>
     <td><%= assignation.user.firstname %></td>
     <td><%= assignation.category.name %></td>
-    <td><%= link_to 'Show', assignation %></td>
-    <td><%= link_to 'Edit', edit_assignation_path(assignation) %></td>
-    <td><%= link_to 'Destroy', assignation, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Mostrar', assignation %></td>
+    <td><%= link_to 'Editar', edit_assignation_path(assignation) %></td>
+    <td><%= link_to 'Eliminar', assignation, confirm: '¿Est&aacute seguro?', method: :delete %></td>
   </tr>
 <% end %>
 
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Assignation', new_assignation_path %>
+<%= link_to 'Nueva Asignación', new_assignation_path %>

@@ -5,10 +5,10 @@ class Assignation < ActiveRecord::Base
   def self.user(department)
     if department.eql?("Administrador computo")
       return Assignation.find(:all,:include => :user,:include => :category,:conditions => 'department = "computo"') 
-      #return Assignation.joins(:user)
     elsif department.eql?("Administrador electronica")
-      return Assignation.find(:all,:conditions => 'department = "electronica"')
+      return Assignation.find(:all,:include => :user,:include => :category,:conditions => 'department = "electronica"')
     else
+nica
       return Assignation.find(:all,:condition => 'department = "null"')
     end
   end

@@ -5,11 +5,7 @@ class AssignationsController < ApplicationController
   # GET /assignations
   # GET /assignations.json
   def index
-    @assignation = Assignation.all;
     @assignation_user = Assignation.user(current_user.category);
-    @category = Category.assignation(current_user.category);
-    @user = User.assignation(current_user.category);
-    @users = User.all;
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @assignations }
@@ -20,8 +16,6 @@ class AssignationsController < ApplicationController
   # GET /assignations/1.json
   def show
     @assignation = Assignation.find(params[:id])
-    @category = Category.assignation(current_user.category);
-    @user = User.assignation(current_user.category);
       respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @assignation }
@@ -53,7 +47,7 @@ class AssignationsController < ApplicationController
     @assignation = Assignation.new(params[:assignation])
     respond_to do |format|
       if @assignation.save
-        format.html { redirect_to @assignation, notice: 'Assignation was successfully created.' }
+        format.html { redirect_to action: "index" }
         format.json { render json: @assignation, status: :created, location: @assignation }
       else
         format.html { render action: "new" }
@@ -70,7 +64,7 @@ class AssignationsController < ApplicationController
     @user = User.assignation(current_user.category);
     respond_to do |format|
       if @assignation.update_attributes(params[:assignation])
-        format.html { redirect_to @assignation, notice: 'Assignation was successfully updated.' }
+        format.html { redirect_to action: "index" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,8 +77,8 @@ class AssignationsController < ApplicationController
   # DELETE /assignations/1.json
   def destroy
     @assignation = Assignation.find(params[:id])
-    #@category = Category.assignation(current_user.category);
-    #@user = User.assignation(current_user.category);
+    @category = Category.assignation(current_user.category);
+    @user = User.assignation(current_user.category);
     @assignation.destroy
     respond_to do |format|
       format.html { redirect_to assignations_url }

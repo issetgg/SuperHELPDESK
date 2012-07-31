@@ -5,11 +5,9 @@ class Ticket < ActiveRecord::Base
     #Preguntaer si los tickets que se veran son los creados por el mismo usuario o quienes ven estos tickets
     def self.user(department)
        if department.eql?("Administrador computo")  || department.eql?("Tecnico computo")
-          #return Ticket.joins(:user)
-	  return Ticket.all
-       elsif department.eql?("Administrador electronica") || department.eql?("Tecnico electronica")
-          return Ticket.joins(:user) 
-          #return Ticket.all
+          return Ticket.all
+       elsif department.eql?("Administrador electronica") || department.eql?("Tecnico electronica") 
+          return Ticket.all
        else
           return Category.find(:all,:conditions => 'department = "null"')
        end

@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :Nombre %><br />
     <%= f.text_field :name %>
   </div>
     <div class="field">
     <%=
-      if current_user.category.eql?("Administrador computo")
+      if current_user.category.eql?("Administrador computo") || current_user.category.eql?("Tecnico computo")
         f.hidden_field(:department, :value => "computo" )
-      elsif current_user.category.eql?("Administrador electronica")
+      elsif current_user.category.eql?("Administrador electronica") || current_user.category.eql?("Tecnico electronica")
         f.hidden_field(:department, :value => "electronica" )
       else
         f.hidden_field(:department, :value => "error" )
@@ -27,6 +27,6 @@
     %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Actualizar Categoría'%>
   </div>
 <% end %>

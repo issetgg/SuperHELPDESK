@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
+    <%= f.label "Usuario" %><br />
     <%= f.select :user_id, @user.collect { |record| [record.firstname, record.id] } %>
   </div>
 
  <div class="field">
-    <%= f.label :category_id %><br />
+    <%= f.label "Categoría" %><br />
     <%= f.select :category_id, @category.collect { |record| [record.name, record.id] } %>
 
   </div>
@@ -35,6 +35,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Actualizar Asignación'%>
   </div>
 <% end %>
