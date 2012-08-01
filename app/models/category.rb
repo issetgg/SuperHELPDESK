@@ -3,9 +3,9 @@ class Category < ActiveRecord::Base
   has_many :assignations
   has_many :users, :through => :assignations
   def self.assignation(department)
-    if department.eql?("Administrador computo") || department.eql?("Tecnico computo")
+    if department.eql?("Admin COMPUTO") || department.eql?("Personal COMPUTO")
        return Category.find(:all,:conditions => 'department = "computo"')
-    elsif department.eql?("Administrador electronica") || department.eql?("Tecnico electronica")
+    elsif department.eql?("Admin ELECTRONICA") || department.eql?("Personal ELECTRONICA")
        return Category.find(:all,:conditions => 'department  = "electronica"') 
     else
        return Category.find(:all,:condition => 'department = "null"')

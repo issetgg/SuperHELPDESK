@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   has_many :assignations
   has_many :categories, :through => :assignations
   def self.assignation(department)
-    if department.eql?("Administrador computo")
+    if department.eql?("Admin COMPUTO")
        return User.find(:all,:conditions => 'category LIKE "%computo%"')
-    elsif department.eql?("Administrador electronica")
+    elsif department.eql?("Admin ELECTRONICA")
        return User.find(:all,:conditions => 'category LIKE "%electronica%"')
     else
        return User.find(:all,:condition => 'department = "null"')
